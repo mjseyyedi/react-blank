@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  reactapp:
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/reactapp
+    expose:
+      - '3003'
+    build:
+      context: .
+      dockerfile: Dockerfile-development
+
+    command: 'bash -c " yarn install && yarn start"'
+    ports:
+      - '3003:3003'

@@ -1,6 +1,6 @@
-import { CHANGE_USERNAME } from '../constants';
+import { CHANGE_USERNAME } from '../../../redux/Homepage/constants';
 
-import { changeUsername } from '../actions';
+import { changeUsername } from '../../../redux/Homepage/actions';
 
 describe('Home Actions', () => {
   describe('changeUsername', () => {

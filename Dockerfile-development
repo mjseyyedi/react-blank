@@ -1,0 +1,10 @@
+
+FROM node:10.16.0
+
+#RUN apt-get update  && apt-get install libpng12-0
+ARG WEB_ENV
+RUN echo $WEB_ENV
+
+WORKDIR /reactapp
+
+EXPOSE 3003

@@ -6,6 +6,7 @@ const OfflinePlugin = require('offline-plugin');
 const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
@@ -83,7 +84,7 @@ module.exports = require('./webpack.base.babel')({
       },
       inject: true,
     }),
-
+    new BundleAnalyzerPlugin(),
     // Put it in the end to capture all the HtmlWebpackPlugin's
     // assets manipulations and do leak its manipulations to HtmlWebpackPlugin
     new OfflinePlugin({
@@ -125,11 +126,11 @@ module.exports = require('./webpack.base.babel')({
       ios: true,
       icons: [
         {
-          src: path.resolve('app/images/icon-512x512.png'),
+          src: path.resolve('app/assets/images/icon-512x512.png'),
           sizes: [72, 96, 128, 144, 192, 384, 512],
         },
         {
-          src: path.resolve('app/images/icon-512x512.png'),
+          src: path.resolve('app/assets/images/icon-512x512.png'),
           sizes: [120, 152, 167, 180],
           ios: true,
         },

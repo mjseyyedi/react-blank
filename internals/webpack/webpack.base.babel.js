@@ -119,6 +119,12 @@ module.exports = options => ({
     modules: ['node_modules', 'app'],
     extensions: ['.js', '.jsx', '.react.js'],
     mainFields: ['browser', 'jsnext:main', 'main'],
+    alias: {
+        "react": "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+        // Must be below test-utils
+      },
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
